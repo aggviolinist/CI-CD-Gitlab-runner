@@ -1,10 +1,10 @@
 resource "aws_instance" "example" {
-  ami                    = "ami-0cbbe2c6a1bb2ad63" 
+  ami                    = "ami-020cba7c55df1f615" 
   instance_type          = "t2.micro"            
   vpc_security_group_ids = [aws_security_group.runner-security-group.id]
   subnet_id              = "subnet-0905f86a59220b6b5"  
   associate_public_ip_address = true
-  iam_instance_profile   = aws_iam_instance_profile.existing-profile.name 
+  iam_instance_profile   = aws_iam_instance_profile.new-existing-profile.name 
   tags = {
     Name = "My-EC2-Instance"
   }
@@ -31,8 +31,8 @@ resource "aws_security_group" "runner-security-group" {
   }
 }
 
-resource "aws_iam_instance_profile" "existing-profile" {
-  name = "instance-profile-name"
+resource "aws_iam_instance_profile" "new-existing-profile" {
+  name = "new-instance-profile-name"
   role = "EC2SSMrole" 
 }
 
