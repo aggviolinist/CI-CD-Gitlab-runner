@@ -30,7 +30,7 @@ resource "aws_security_group" "runner-security-group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-
+# I manually added an ingress rule for port 80 and 8080 so that I can access my web app via the browser
 resource "aws_iam_instance_profile" "new-profile" {
   name = "new-instance-profile"
   role = "EC2SSMrole" 
