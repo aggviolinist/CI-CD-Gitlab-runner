@@ -4,14 +4,14 @@ resource "aws_instance" "example" {
   vpc_security_group_ids = [aws_security_group.runner-security-group.id]
   subnet_id              = "subnet-0905f86a59220b6b5"  
   associate_public_ip_address = true
-  iam_instance_profile   = aws_iam_instance_profile.new-existing-profile.name 
+  iam_instance_profile   = aws_iam_instance_profile.new-profile.name 
   tags = {
     Name = "My-EC2-Instance"
   }
 }
 
 resource "aws_security_group" "runner-security-group" {
-  name        = "allow_ssh"
+  name        = "allow-new-ssh"
   description = "Allow SSH inbound traffic"
   vpc_id      = "vpc-0630e4ccdcd788a95" 
 
@@ -31,8 +31,7 @@ resource "aws_security_group" "runner-security-group" {
   }
 }
 
-resource "aws_iam_instance_profile" "new-existing-profile" {
-  name = "new-instance-profile-name"
+resource "aws_iam_instance_profile" "new-profile" {
+  name = "new-instance-profile"
   role = "EC2SSMrole" 
 }
-
