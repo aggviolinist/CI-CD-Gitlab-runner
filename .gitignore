@@ -1,0 +1,24 @@
+*.tfstate
+variable.tf
+.terraform.lock.hcl
+.terraform/
+*.backup
+
+
+
+/**/*.tfstate*
+/**/.terraform
+./modules/key/yes*
+# Local .terraform directories
+**/.terraform/*
+.terraform/*
+*.hcl
+*.lock*
+.../.terraform/*
+terraform.*
+*.tfvars*
+
+# .tfstate files
+*.tfstate
+/**/*.tfstate*
+*.tfstate.*
